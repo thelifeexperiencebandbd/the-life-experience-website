@@ -1,0 +1,16 @@
+{
+  "members": [
+    {
+      "name": "Noman",
+      "role": "Vocals / Guitars / Sound Engineer",
+      "image": "/NOMAN_n.jpg",
+      "bio": "The driving force behind the melodies, handling core vocals, atmospheric guitar layers, and sound design."
+    },
+    {
+      "name": "Sunzid",
+      "role": "Bass Guitarist",
+      "image": "/Sunzid_n.jpg",
+      "bio": "Laying down the deep, heavy, and hypnotic bass lines that anchor the psychedelic rhythm of the band."
+    }
+  ]
+}

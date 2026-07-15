@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics Library - The Life Experience</title>
+    
+    <!-- [ফিক্সড] সোশ্যাল মিডিয়া আইকনগুলোর আসল গ্লোবাল লিঙ্ক সিডিএন -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <style>
+        /* সাফারির ওভারল্যাপ ও স্ক্রোল লক ফিক্স */
+        html { scroll-behavior: smooth; height: auto !important; overflow-y: scroll !important; }
+        body { font-family: 'Courier New', Courier, monospace, 'Segoe UI'; background-color: #000000; color: #ffffff; margin: 0; padding: 0; letter-spacing: 1px; height: auto !important; min-height: 100%; }
+        .container { width: 80%; margin: auto; max-width: 1200px; position: relative; z-index: 5; }
+        
+        /* ফিক্সড ওয়াটারমার্ক ব্যাকগ্রাউন্ড লজিক */
+        .hero-watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 450px; height: auto; opacity: 0.05; pointer-events: none; z-index: 0; }
+        
+        header { background-color: rgba(0, 0, 0, 0.95); padding: 30px 0; border-bottom: 1px solid #1a1a1a; position: relative; z-index: 100; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #fff; }
+        .band-main-logo { height: 45px; width: auto; object-fit: contain; }
+        .band-name { font-size: 22px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
+        
+        /* নতুন ফুল মেনু লিঙ্কের জন্য সিএসএস ফ্রন্ট স্টাইল */
+        .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+        .nav-links a { color: #888888; text-decoration: none; font-size: 13px; text-transform: uppercase; transition: 0.4s; }
+        .nav-links a:hover { color: #ffffff; text-shadow: 0 0 5px #ffffff; }
+        
+        .search-section { padding: 60px 0 30px; text-align: center; position: relative; z-index: 5; }
+        .search-section h1 { font-size: 32px; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 30px; }
+        .search-box-container { max-width: 600px; margin: 0 auto; position: relative; }
+        .search-box-container i { position: absolute; left: 15px; top: 15px; color: #555; }
+        .search-input { width: 100%; padding: 15px 15px 15px 45px; background-color: #050505; border: 1px solid #222222; color: #ffffff; font-family: monospace; font-size: 16px; box-sizing: border-box; transition: 0.4s; }
+        .search-input:focus { border-color: #ffffff; outline: none; }
+        
+        .lyrics-container { padding: 30px 0 80px; position: relative; z-index: 5; }
+        .lyrics-box { background-color: transparent !important; border: 1px solid #1a1a1a; padding: 35px; margin: 0 auto 40px; max-width: 700px; transition: 0.4s; box-sizing: border-box; }
+        .lyrics-box:hover { border-color: #333; }
+        .lyrics-title { font-size: 18px; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; margin-bottom: 20px; border-left: 3px solid #ff3333; padding-left: 12px; }
+        .lyrics-content { color: #dddddd; font-size: 14px; line-height: 2; white-space: pre-line; font-family: monospace; }
+        .no-results { text-align: center; color: #555; font-size: 16px; margin-top: 50px; display: none; }
+        /* [আপডেট] ফুটার চিকন এবং ক্লাসিক করার সিএসএস */
+.footer { 
+    background-color: #111111; 
+    text-align: center; 
+    padding: 40px 0; 
+    font-size: 11px; /* লেখার সাইজ ছোট করা হলো */
+    font-weight: normal !important; /* লেখা যেন একদম চিকন দেখায় */
+    color: #888888; /* একটু হালকা ছাই রঙ করা হলো যেন চোখে না লাগে */
+    border-top: 1px solid #222222; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    position: relative; 
+    z-index: 10; 
+    clear: both; 
+}
+.footer p {
+    font-weight: 300 !important; /* সাফারিতে অতিরিক্ত স্লিম লুক দেওয়ার জন্য */
+    margin: 0;
+}
+.social-icons { 
+    margin-bottom: 20px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+}
+.social-icons a { 
+    color: #888888; 
+    font-size: 13px; /* আইকন ও টেক্সট লিংক চিকন করা হলো */
+    font-weight: normal !important;
+    text-decoration: none; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.4s; 
+}
+.social-icons a:hover { 
+    color: #ff3333; 
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+}
+
+    </style>
+</head>
+<body>
+    <!-- ফিক্সড ব্যাকগ্রাউন্ড লোগো ওয়াটারমার্ক -->
+    <img src="logo.jpg" alt="Watermark" class="hero-watermark">
+
+    <!-- [আপডেট] ব্যাক টু হোম বাটনের বদলে হোম পেজের মতো হুবহু সব অপশনসহ নতুন মেনু বার -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo-area">
+                <img src="logo.jpg" alt="Logo" class="band-main-logo">
+                <div class="band-name">The Life Experience</div>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">Members</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="lyrics.html">Lyrics</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="search-section">
+        <div class="container">
+            <h1>Song Lyrics</h1>
+            <div class="search-box-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="lyricsSearch" class="search-input" placeholder="Search by song title or keywords...">
+            </div>
+        </div>
+    </section>
+
+    <div class="container lyrics-container">
+        <div id="noResults" class="no-results">No lyrics found matching your search.</div>
+
+        <!-- গান ১ এর লিরিক্স বাক্স -->
+        <div class="lyrics-box">
+            <div class="lyrics-title">Track 01: অনুভূতি গুলো</div>
+            <div class="lyrics-content">
+                [Verse 1]
+                ফিরে দেখি পেছোনে
+                ফেলে আশা পথে পায়ের চিহ্নে 
+                একে রাখে যত হতাশা , যত না পাওয়ার 
+                ওনুভুতি গুলো 
+                রাতের গভীরে
+                ওনুভুতি গুলো 
+                রাতের গভীরে
+                জেগে থাকে আগুন হয়ে 
+                রাতার গভীরে
+
+                [কোরাস]
+                জ্বলে থাকে আগুন হয়ে
+                জ্বলে থাকে আগুন হয়ে 
+                জ্বলে থাকে আগুন হয়ে 
+                জ্বলে থাকে আগুন হয়ে 
+            </div>
+        </div>
+
+        <!-- গান ২ এর লিরিক্স বাক্স -->
+        <div class="lyrics-box">
+            <div class="lyrics-title">Track 02: প্রিয়তমা </div>
+            <div class="lyrics-content">
+                [Verse 1]
+                প্রিয়তমা তোমায় দেখে মনে জাগে যে ঝড়ের আকাশ 
+                তারপরেই তোমার চোখে ভেসে আসে যে প্রেমের আভাস 
+                প্রিয়তমা তোমায় দেখে মনে জাগে যে প্রেমের  আকাশ 
+                তারপরেই তোমার চোখে ভেসে আসে যে প্রেমের আভাস 
+
+                [Chorus]
+                প্রিয়তমা তুমি নাও না মেনে... এই আমি তোমার ই 
+                কাছে এসে তুমি যাও জানিয়ে একবার ভালোবাসি......
+
+                [Verse 2]
+                তুমি যেনো চিরচেনা, তবু প্রতিক্ষণে প্রথম দেখা
+                ভালোবাসি তোমার হাসি তোমার দারুন কথা বলা... 
+                তুমি যেন চিরচেনা...তবু প্রতিক্ষণে প্রথম দেখা ❤️
+                ভালোবাসি তোমার হাসি তোমার দারুন কথা বলা...
+
+                [Chorus]
+                প্রিয়তমা তুমি নাও না মেনে... এই আমি তোমার ই 
+                কাছে এসে তুমি যাও জানিয়ে একবার ভালোবাসি......
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="http://bandzoogle.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <br>
+        <p>Copyright © 2026 The Life Experience. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('lyricsSearch');
+        const lyricsBoxes = document.querySelectorAll('.lyrics-box');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            let hasResults = false;
+
+            lyricsBoxes.forEach(box => {
+                const title = box.querySelector('.lyrics-title').textContent.toLowerCase();
+                const content = box.querySelector('.lyrics-content').textContent.toLowerCase();
+
+                if (title.includes(query) || content.includes(query)) {
+                    box.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+
+            if (hasResults) noResults.style.display = 'none';
+            else noResults.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

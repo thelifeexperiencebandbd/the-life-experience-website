@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Life Experience - Official Band Site</title>
+  <link rel="stylesheet" href="style.css">
+
+    <style>
+        html { scroll-behavior: smooth; height: auto !important; overflow-y: scroll !important; }
+        body { font-family: 'Courier New', Courier, monospace, 'Segoe UI'; background-color: #000000; color: #ffffff; margin: 0; padding: 0; letter-spacing: 1px; height: auto !important; min-height: 100%; }
+        .container { width: 80%; margin: auto; max-width: 1200px; }
+        header { background-color: rgba(0, 0, 0, 0.95); padding: 30px 0; border-bottom: 1px solid #1a1a1a; position: sticky; top: 0; z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .prism-logo { width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 35px solid #ffffff; position: relative; }
+        .prism-logo::after { content: ''; position: absolute; top: 15px; left: 0; width: 40px; height: 4px; background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3); }
+        .band-name { font-size: 22px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
+        .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+        .nav-links a { color: #888888; text-decoration: none; font-size: 13px; text-transform: uppercase; transition: 0.4s; }
+        .nav-links a:hover { color: #ffffff; text-shadow: 0 0 5px #ffffff; }
+        .hero { height: 65vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #111111 0%, #000000 100%); border-bottom: 1px solid #1a1a1a; }
+        .hero h1 { font-size: 50px; font-weight: 300; margin-bottom: 20px; letter-spacing: 5px; }
+        .hero p { font-size: 16px; color: #666666; max-width: 600px; line-height: 1.8; }
+        section { padding: 80px 0; border-bottom: 1px solid #1a1a1a; display: block !important; clear: both; }
+        section h2 { font-size: 24px; text-transform: uppercase; letter-spacing: 4px; text-align: center; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .card { background-color: #050505; border: 1px solid #111111; padding: 25px; text-align: center; transition: 0.5s; }
+        .card:hover { border-color: #555555; box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); }
+        .member-img-style { width: 100%; height: 280px; object-fit: cover; border: 1px solid #222222; margin-bottom: 20px; }
+        .card h3 { font-size: 18px; margin-bottom: 5px; letter-spacing: 2px; }
+        .card .role { color: #ff3333; font-size: 11px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 2px; }
+        .card p { color: #666666; font-size: 13px; line-height: 1.6; }
+        .video-box { max-width: 800px; margin: 0 auto; border: 1px solid #222222; }
+        iframe { display: block; border: none; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .gallery-item { position: relative; overflow: hidden; border: 1px solid #1a1a1a; height: 200px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; filter: grayscale(100%); }
+        .gallery-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
+        .lyrics-box { max-width: 700px; margin: 0 auto 30px; background-color: #050505; border: 1px solid #111111; padding: 30px; }
+        .lyrics-title { font-size: 16px; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; margin-bottom: 15px; border-left: 3px solid #ff3333; padding-left: 10px; }
+        .lyrics-content { color: #888888; font-size: 14px; line-height: 2; white-space: pre-line; font-family: monospace; }
+        .contact-form { max-width: 600px; margin: 0 auto; background-color: #050505; border: 1px solid #111111; padding: 40px; }
+        .contact-form label { font-size: 12px; text-transform: uppercase; color: #888888; letter-spacing: 2px; display: block; margin-bottom: 8px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; background-color: #111111; border: 1px solid #222222; color: #ffffff; font-family: monospace; margin-bottom: 25px; box-sizing: border-box; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: #ffffff; outline: none; }
+        .contact-form button { background-color: #ffffff; color: #000000; border: none; padding: 12px 30px; font-family: monospace; font-weight: bold; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; }
+        .footer { background-color: #111111; text-align: center; padding: 40px 0; font-size: 11px; color: #888888; border-top: 1px solid #222222; text-transform: uppercase; letter-spacing: 2px; display: block !important; clear: both; }
+        .social-icons { margin-bottom: 20px; display: flex; justify-content: center; gap: 30px; }
+        .social-icons a { color: #888888; font-size: 13px; transition: 0.4s; text-transform: uppercase; }
+        .social-icons a:hover { color: #ff3333; text-shadow: 0 0 10px rgba(255, 51, 51, 0.6); }
+         .band-main-logo {
+    height: 65px; 
+    width: auto;
+    object-fit: contain;
+}
+      /* background logo watermark */
+.hero-watermark {
+    position: fixed; /* fix watermark */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px; /* logo resider */
+    height: auto;
+    opacity: 0.05; /* background opacity */
+    pointer-events: none;
+    z-index: 0; /
+}
+
+/* The background of the remaining sections of the website has been made transparent */
+.hero, section, footer {
+    position: relative;
+    z-index: 1;
+    background-color: transparent !important; 
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo-area"><img src="logo.jpg" alt="Logo" class="band-main-logo"><div class="band-name">The Life Experience</div></div>
+            <nav><ul class="nav-links"><li><a href="#">Home</a></li><li><a href="#about">Members</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="lyrics.html">Lyrics</a></li><li><a href="music.html">Music</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+        </div>
+    </header>
+    <section class="hero">
+   
+    <img src="logo.jpg" alt="Watermark" class="hero-watermark"> 
+    
+    <div class="container">
+            <h1>THE LIFE EXPERIENCE</h1>
+            <p>A surreal journey through sound and light. Bringing you a unique psychedelic and alternative rock experience.</p>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2>Band Members</h2>
+            <div id="member-container" class="grid">
+            </div>
+
+    </section>
+    <section id="gallery">
+        <div class="container">
+            <h2>Picture Library</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="band_pic1.jpg" alt="1" onerror="this.src='https://placeholder.com'"></div>
+                <div class="gallery-item"><img src="band_pic2.jpg" alt="2" onerror="this.src='https://placeholder.com'"></div>
+                <div class="gallery-item"><img src="band_pic3.jpg" alt="3" onerror="this.src='https://placeholder.com'"></div>
+            </div>
+        </div>
+    </section>
+    <section id="music">
+        <div class="container">
+            <h2>Latest Psychedelic Track</h2>
+            <div class="video-box">
+    <iframe width="100%" height="450" src="https://youtube.com/embed/KpcjJ3GKJjg" title="YouTube video player" allowfullscreen></iframe>
+</div>
+    </section>
+    <section id="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form action="https://formspree.io/f/xojgvzzb" method="POST">
+                <label for="name">Name</label><input type="text" id="name" name="name" required>
+                <label for="email">Email</label><input type="email" id="email" name="email" required>
+                <label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    </section>
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://web.facebook.com/thelifeexperiencebd" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <br><br>
+        <p>Copyright © 2026 The Life Experience. All rights reserved.</p>
+    </footer>
+    <script>
+  // JSON ফাইল থেকে ডাটা নিয়ে আসার ফাংশন
+  fetch('data/members.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('member-container');
+      container.innerHTML = ''; // আগের ডামি ডাটা মুছে ফেলা
+
+      // লুপ চালিয়ে প্রত্যেক মেম্বারকে স্ক্রিনে দেখানো
+      data.members.forEach(member => {
+        container.innerHTML += `
+          <div class="card">
+            <img src="${member.image}" alt="${member.name}" class="member-img-style">
+            <h3>${member.name}</h3>
+            <div class="role">${member.role}</div>
+            <p>${member.bio || ''}</p>
+          </div>
+        `;
+      });
+    })
+    .catch(error => console.error('Error loading members:', error));
+
+  // Netlify Identity লগইন রিডাইরেক্ট স্ক্রিপ্ট
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

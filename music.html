@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics Library - The Life Experience</title>
+    
+    <!-- [ফিক্সড] সোশ্যাল মিডিয়া আইকনগুলোর আসল গ্লোবাল লিঙ্ক সিডিএন -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <style>
+        /* সাফারির ওভারল্যাপ ও স্ক্রোল লক ফিক্স */
+        html { scroll-behavior: smooth; height: auto !important; overflow-y: scroll !important; }
+        body { font-family: 'Courier New', Courier, monospace, 'Segoe UI'; background-color: #000000; color: #ffffff; margin: 0; padding: 0; letter-spacing: 1px; height: auto !important; min-height: 100%; }
+        .container { width: 80%; margin: auto; max-width: 1200px; position: relative; z-index: 5; }
+        
+        /* ফিক্সড ওয়াটারমার্ক ব্যাকগ্রাউন্ড লজিক */
+        .hero-watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 450px; height: auto; opacity: 0.05; pointer-events: none; z-index: 0; }
+        
+        header { background-color: rgba(0, 0, 0, 0.95); padding: 30px 0; border-bottom: 1px solid #1a1a1a; position: relative; z-index: 100; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 15px; text-decoration: none; color: #fff; }
+        .band-main-logo { height: 45px; width: auto; object-fit: contain; }
+        .band-name { font-size: 22px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
+        
+        /* নতুন ফুল মেনু লিঙ্কের জন্য সিএসএস ফ্রন্ট স্টাইল */
+        .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+        .nav-links a { color: #888888; text-decoration: none; font-size: 13px; text-transform: uppercase; transition: 0.4s; }
+        .nav-links a:hover { color: #ffffff; text-shadow: 0 0 5px #ffffff; }
+        
+        .search-section { padding: 60px 0 30px; text-align: center; position: relative; z-index: 5; }
+        .search-section h1 { font-size: 32px; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 30px; }
+        .search-box-container { max-width: 600px; margin: 0 auto; position: relative; }
+        .search-box-container i { position: absolute; left: 15px; top: 15px; color: #555; }
+        .search-input { width: 100%; padding: 15px 15px 15px 45px; background-color: #050505; border: 1px solid #222222; color: #ffffff; font-family: monospace; font-size: 16px; box-sizing: border-box; transition: 0.4s; }
+        .search-input:focus { border-color: #ffffff; outline: none; }
+        
+        .lyrics-container { padding: 30px 0 80px; position: relative; z-index: 5; }
+        .lyrics-box { background-color: transparent !important; border: 1px solid #1a1a1a; padding: 35px; margin: 0 auto 40px; max-width: 700px; transition: 0.4s; box-sizing: border-box; }
+        .lyrics-box:hover { border-color: #333; }
+        .lyrics-title { font-size: 18px; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; margin-bottom: 20px; border-left: 3px solid #ff3333; padding-left: 12px; }
+        .lyrics-content { color: #dddddd; font-size: 14px; line-height: 2; white-space: pre-line; font-family: monospace; }
+        .no-results { text-align: center; color: #555; font-size: 16px; margin-top: 50px; display: none; }
+        /* [আপডেট] ফুটার চিকন এবং ক্লাসিক করার সিএসএস */
+.footer { 
+    background-color: #111111; 
+    text-align: center; 
+    padding: 40px 0; 
+    font-size: 11px; /* লেখার সাইজ ছোট করা হলো */
+    font-weight: normal !important; /* লেখা যেন একদম চিকন দেখায় */
+    color: #888888; /* একটু হালকা ছাই রঙ করা হলো যেন চোখে না লাগে */
+    border-top: 1px solid #222222; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    position: relative; 
+    z-index: 10; 
+    clear: both; 
+}
+.footer p {
+    font-weight: 300 !important; /* সাফারিতে অতিরিক্ত স্লিম লুক দেওয়ার জন্য */
+    margin: 0;
+}
+.social-icons { 
+    margin-bottom: 20px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+}
+.social-icons a { 
+    color: #888888; 
+    font-size: 13px; /* আইকন ও টেক্সট লিংক চিকন করা হলো */
+    font-weight: normal !important;
+    text-decoration: none; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.4s; 
+}
+.social-icons a:hover { 
+    color: #ff3333; 
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+}
+
+    </style>
+</head>
+<body>
+    <!-- ফিক্সড ব্যাকগ্রাউন্ড লোগো ওয়াটারমার্ক -->
+    <img src="logo.jpg" alt="Watermark" class="hero-watermark">
+
+    <!-- [আপডেট] ব্যাক টু হোম বাটনের বদলে হোম পেজের মতো হুবহু সব অপশনসহ নতুন মেনু বার -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo-area">
+                <img src="logo.jpg" alt="Logo" class="band-main-logo">
+                <div class="band-name">The Life Experience</div>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">Members</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="lyrics.html">Lyrics</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="music-section">
+        <div class="container">
+            <h1>Bands Demo Tracks</h1>
+            
+            <!-- ট্র্যাক ১ এর প্লেয়ার ও লাইক-কমেন্ট -->
+            <div class="track-box">
+                <div class="track-title">Track 01: অনুভূতি গুলো (Demo Version)</div>
+                <div class="track-desc">ডেমো ।</div>
+                <audio controls controlsList="nodownload" oncontextmenu="return false;">
+                    <source src="demo_track1.mp3" type="audio/mpeg">
+                </audio>
+
+                <div style="margin-top: 15px;">
+                    <button onclick="toggleLike(this, 'like1')" style="background: none; border: 1px solid #333; color: #888; padding: 8px 15px; font-family: monospace; cursor: pointer; transition: 0.3s;">
+                        <i class="fas fa-heart"></i> Like (<span id="like1">0</span>)
+                    </button>
+                </div>
+
+                <div style="margin-top: 20px; border-top: 1px dashed #222; padding-top: 15px;">
+                    <h4 style="font-size: 11px; text-transform: uppercase; color: #666; letter-spacing: 1px; margin-bottom: 10px;">Quick Fan Comment</h4>
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <input type="text" placeholder="Name..." class="comment-name" style="width: 25%; padding: 8px; background: #050505; border: 1px solid #222; color: #fff; font-family: monospace; font-size:12px;">
+                        <input type="text" placeholder="Your feelings..." class="comment-text" style="width: 55%; padding: 8px; background: #050505; border: 1px solid #222; color: #fff; font-family: monospace; font-size:12px;">
+                        <button onclick="addComment(this)" style="background: #fff; color: #000; border: none; padding: 8px 15px; font-family: monospace; font-weight: bold; cursor: pointer; font-size:12px;">Post</button>
+                    </div>
+                    <div class="comments-list" style="max-height: 120px; overflow-y: auto; font-size: 13px; color: #aaa;"></div>
+                </div>
+            </div>
+
+            <!-- ট্র্যাক ২ এর প্লেয়ার (আপনার টেস্ট করা ফাইল নেম অনুযায়ী আপডেট করা) -->
+            <div class="track-box">
+                <div class="track-title">Track 02: প্রিয়তমা (DEMO)</div>
+                <div class="track-desc">আমাদের ২য় এক্সপেরিমেন্টাল demo স্ট্রাকচার ট্র্যাক।</div>
+                <audio controls controlsList="nodownload" oncontextmenu="return false;">
+                    <source src="priotoma (DEMO).mp3" type="audio/mpeg">
+                </audio>
+
+                <div style="margin-top: 15px;">
+                    <button onclick="toggleLike(this, 'like2')" style="background: none; border: 1px solid #333; color: #888; padding: 8px 15px; font-family: monospace; cursor: pointer; transition: 0.3s;">
+                        <i class="fas fa-heart"></i> Like (<span id="like2">0</span>)
+                    </button>
+                </div>
+
+                <div style="margin-top: 20px; border-top: 1px dashed #222; padding-top: 15px;">
+                    <h4 style="font-size: 11px; text-transform: uppercase; color: #666; letter-spacing: 1px; margin-bottom: 10px;">Quick Fan Comment</h4>
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <input type="text" placeholder="Name..." class="comment-name" style="width: 25%; padding: 8px; background: #050505; border: 1px solid #222; color: #fff; font-family: monospace; font-size:12px;">
+                        <input type="text" placeholder="Your feelings..." class="comment-text" style="width: 55%; padding: 8px; background: #050505; border: 1px solid #222; color: #fff; font-family: monospace; font-size:12px;">
+                        <button onclick="addComment(this)" style="background: #fff; color: #000; border: none; padding: 8px 15px; font-family: monospace; font-weight: bold; cursor: pointer; font-size:12px;">Post</button>
+                    </div>
+                    <div class="comments-list" style="max-height: 120px; overflow-y: auto; font-size: 13px; color: #aaa;"></div>
+                </div>
+            </div>
+
+            <!-- নিয়ন ডার্ক ফ্রেমে বন্দি অফিশিয়াল ফেসবুক প্লাগইন -->
+            <div style="margin-top: 30px; text-align: center;">
+                <h4 style="font-size: 11px; text-transform: uppercase; color: #ff3333; letter-spacing: 2px; margin-bottom: 15px;">Official Facebook Discussion</h4>
+                <div class="fb-dark-frame">
+                    <div class="fb-page" 
+                         data-href="https://facebook.com" 
+                         data-tabs="timeline,messages" 
+                         data-width="480" 
+                         data-height="300" 
+                         data-small-header="true" 
+                         data-adapt-container-width="true" 
+                         data-hide-cover="false" 
+                         data-show-facepile="false">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <br>
+        <p>Copyright © 2026 The Life Experience. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleLike(btn, id) {
+            let countSpan = document.getElementById(id);
+            let currentLikes = parseInt(countSpan.textContent);
+            if (btn.style.color === 'rgb(255, 51, 51)') {
+                btn.style.color = '#888'; btn.style.borderColor = '#333';
+                countSpan.textContent = currentLikes - 1;
+            } else {
+                btn.style.color = '#ff3333'; btn.style.borderColor = '#ff3333';
+                countSpan.textContent = currentLikes + 1;
+            }
+        }
+        
+        function addComment(btn) {
+            let parent = btn.parentElement;
+            let nameInput = parent.querySelector('.comment-name');
+            let textInput = parent.querySelector('.comment-text');
+            let commentsList = parent.parentElement.querySelector('.comments-list');
+            if (nameInput.value.trim() === "" || textInput.value.trim() === "") return;
+            let newComment = document.createElement('p');
+            newComment.style.margin = "5px 0";
+            newComment.innerHTML = `<strong style="color:#fff;">${nameInput.value}:</strong> ${textInput.value}`;
+            commentsList.appendChild(newComment);
+            textInput.value = "";
+        }
+    </script>
+</body>
+</html>
