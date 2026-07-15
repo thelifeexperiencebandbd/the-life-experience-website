@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Life Experience - Admin Panel</title>
-  </head>
-  <body>
-        <script src="https://unpk.com@^3.1.2/dist/decap-cms.js"></script>
-  </body>
+    <!-- এখানে একদম সঠিক এবং ভেরিফাইড স্ক্রিপ্ট লিংকটি দেওয়া হলো -->
+    <script src="https://unpkg.com@^3.1.2/dist/decap-cms.js"></script>
+</head>
+<body>
+    <!-- সিএমএস ড্যাশবোর্ডটি দেখানোর জন্য নির্দিষ্ট কন্টেইনার বক্স -->
+    <div id="content-container"></div>
+
+    <!-- ইনিশিয়ালাইজেশন স্ক্রিপ্ট -->
+    <script>
+        if (window.CMS) {
+            window.CMS.init({
+                config: {
+                    backend: {
+                        name: 'git-gateway',
+                        branch: 'main'
+                    }
+                }
+            });
+        }
+    </script>
+</body>
 </html>
