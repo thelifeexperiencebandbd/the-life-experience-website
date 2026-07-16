@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Life Experience - Official Band Site</title>
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <style>
         html { scroll-behavior: smooth; height: auto !important; overflow-y: scroll !important; }
@@ -50,30 +50,27 @@
         .social-icons { margin-bottom: 20px; display: flex; justify-content: center; gap: 30px; }
         .social-icons a { color: #888888; font-size: 13px; transition: 0.4s; text-transform: uppercase; }
         .social-icons a:hover { color: #ff3333; text-shadow: 0 0 10px rgba(255, 51, 51, 0.6); }
-         .band-main-logo {
-    height: 65px; 
-    width: auto;
-    object-fit: contain;
-}
-      /* background logo watermark */
-.hero-watermark {
-    position: fixed; /* fix watermark */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 450px; /* logo resider */
-    height: auto;
-    opacity: 0.05; /* background opacity */
-    pointer-events: none;
-    z-index: 0; /
-}
-
-/* The background of the remaining sections of the website has been made transparent */
-.hero, section, footer {
-    position: relative;
-    z-index: 1;
-    background-color: transparent !important; 
-}
+        .band-main-logo {
+            height: 65px; 
+            width: auto;
+            object-fit: contain;
+        }
+        .hero-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: auto;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero, section, footer {
+            position: relative;
+            z-index: 1;
+            background-color: transparent !important; 
+        }
     </style>
 </head>
 <body>
@@ -84,10 +81,8 @@
         </div>
     </header>
     <section class="hero">
-   
-    <img src="logo.jpg" alt="Watermark" class="hero-watermark"> 
-    
-    <div class="container">
+        <img src="logo.jpg" alt="Watermark" class="hero-watermark"> 
+        <div class="container">
             <h1>THE LIFE EXPERIENCE</h1>
             <p>A surreal journey through sound and light. Bringing you a unique psychedelic and alternative rock experience.</p>
         </div>
@@ -97,7 +92,7 @@
             <h2>Band Members</h2>
             <div id="member-container" class="grid">
             </div>
-
+        </div>
     </section>
     <section id="gallery">
         <div class="container">
@@ -113,21 +108,22 @@
         <div class="container">
             <h2>Latest Psychedelic Track</h2>
             <div class="video-box">
-    <iframe width="100%" height="450" src="https://youtube.com/embed/KpcjJ3GKJjg" title="YouTube video player" allowfullscreen></iframe>
-</div>
+                <iframe width="100%" height="450" src="https://youtube.com/embed/KpcjJ3GKJjg" title="YouTube video player" allowfullscreen></iframe>
+            </div>
+        </div>
     </section>
     <section id="contact">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <div class="contact-form">
-            <form action="https://formspree.io/f/xojgvzzb" method="POST">
-                <label for="name">Name</label><input type="text" id="name" name="name" required>
-                <label for="email">Email</label><input type="email" id="email" name="email" required>
-                <label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/xojgvzzb" method="POST">
+                    <label for="name">Name</label><input type="text" id="name" name="name" required>
+                    <label for="email">Email</label><input type="email" id="email" name="email" required>
+                    <label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-    </div>
     </section>
     <footer class="footer">
         <div class="social-icons">
@@ -138,38 +134,37 @@
         <p>Copyright © 2026 The Life Experience. All rights reserved.</p>
     </footer>
     <script>
-  // JSON ফাইল থেকে ডাটা নিয়ে আসার ফাংশন
-  fetch('data/members.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('member-container');
-      container.innerHTML = ''; // আগের ডামি ডাটা মুছে ফেলা
+        // JSON ফাইল থেকে ডাটা নিয়ে আসার ফাংশন
+        fetch('data/members.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('member-container');
+                container.innerHTML = '';
 
-      // লুপ চালিয়ে প্রত্যেক মেম্বারকে স্ক্রিনে দেখানো
-      data.members.forEach(member => {
-        container.innerHTML += `
-          <div class="card">
-            <img src="${member.image}" alt="${member.name}" class="member-img-style">
-            <h3>${member.name}</h3>
-            <div class="role">${member.role}</div>
-            <p>${member.bio || ''}</p>
-          </div>
-        `;
-      });
-    })
-    .catch(error => console.error('Error loading members:', error));
+                // লুপ চালিয়ে প্রত্যেক মেম্বারকে স্ক্রিনে দেখানো
+                data.members.forEach(member => {
+                    container.innerHTML += `
+                        <div class="card">
+                            <img src="${member.image}" alt="${member.name}" class="member-img-style">
+                            <h3>${member.name}</h3>
+                            <div class="role">${member.role}</div>
+                            <p>${member.bio || ''}</p>
+                        </div>
+                    `;
+                });
+            })
+            .catch(error => console.error('Error loading members:', error));
 
-  // Netlify Identity লগইন রিডাইরেক্ট স্ক্রিপ্ট
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
-
+        // Netlify Identity লগইন রিডাইরেক্ট স্ক্রিপ্ট
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
