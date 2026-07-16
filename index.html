@@ -143,9 +143,15 @@
 
                 // লুপ চালিয়ে প্রত্যেক মেম্বারকে স্ক্রিনে দেখানো
                 data.members.forEach(member => {
+                    // ছবির path সঠিক করা
+                    let imagePath = member.image;
+                    if (!imagePath.startsWith('/') && !imagePath.startsWith('http')) {
+                        imagePath = '/' + imagePath;
+                    }
+                    
                     container.innerHTML += `
                         <div class="card">
-                            <img src="${member.image}" alt="${member.name}" class="member-img-style">
+                            <img src="${imagePath}" alt="${member.name}" class="member-img-style" onerror="this.src='/uploads/placeholder.png'">
                             <h3>${member.name}</h3>
                             <div class="role">${member.role}</div>
                             <p>${member.bio || ''}</p>
