@@ -2,8 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "/"
-public_folder: "/"
+# Media folder - সব ছবি এখানে সেভ হবে
+media_folder: "uploads"
+public_folder: "/uploads"
 
 site_url: "https://thelifeexperiencebandbd.netlify.app"
 
@@ -21,5 +22,5 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Role", name: "role", widget: "string" }
-              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image", name: "image", widget: "image", media_folder: "uploads", public_folder: "/uploads" }
               - { label: "Bio", name: "bio", widget: "string" }
