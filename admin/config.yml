@@ -5,6 +5,8 @@ backend:
 media_folder: "/"
 public_folder: "/"
 
+site_url: "https://thelifeexperiencebandbd.netlify.app"
+
 collections:
   - name: "band_data"
     label: "Band Management"
